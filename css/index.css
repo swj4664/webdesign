@@ -1,0 +1,320 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+/* font-family: 'Nanum Gothic', sans-serif;/// */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* cursor: url(../img/pica.jfif) 20 20,auto; */
+}
+
+header, footer, section, article, aside, address, nav {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    /* 아래 빈틈 없애기 위해 */
+    vertical-align: middle;
+    /* 일부 브라우저에서 이미지에 링크를 걸면 파란 테두리 생기는 경우를 위해 */
+    border: none;
+}
+
+/* 부모구조가 무너지는 것을 대비해서 */
+/* after - 앞에 선택한 선택자의 뒤로 붙는다. */
+.cf::after {
+    /* 내용이 없는 것이 */
+    content: '';
+    /* 블록으로 붙는다 */
+    display: block;
+    clear: both;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* 표 크기가 유지되고 텍스트가 길면 넘어간다. */
+    table-layout: fixed;
+    /* 글자가 넘어감 */
+    /* white-space: nowrap; */
+    /* 밑에 두개가 넘어가는 글자 ...으로 표시해준다. */
+    text-overflow:ellipsis;
+    overflow:hidden
+}
+
+/* ? */
+.row {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.address {
+    font-style: normal;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+#header {
+    box-shadow: 0 1px 1px #ddd;
+    /* 이걸 안쓰는 이유 */
+    /* 서브메뉴가 부모를 넘어가는 경우 이걸 쓰면 안보이기 때문에 cf클래스로 부모를 살린다. */
+    /* overflow: hidden; */
+}
+
+/* 아이디는 부모랑 안써도 됨. 클래스는 부모와 쓰는게 좋음 */
+#logo {
+    float: left;
+    margin: 50px 0;
+}
+
+#logo img {
+    /* 이미지흐려지는 이유? */
+    width: 200px;
+}
+   
+#nav {
+    float: right;
+    margin-top: 70px;
+    
+}
+
+
+
+/* 넓이는 항상 부모에게 주는 것이 좋음 */
+#nav .depth1 {
+    width: 600px;
+}
+
+#nav .depth1 > li {
+    float: left;
+    /* 소수 둘째자리까지 */
+    width: 33.33%;
+    position: relative;
+}
+
+#nav .depth1 > li:hover {
+    background-color: #4298cc;
+    color: #fff;
+}
+
+#nav .depth1 > li > a {
+    display: block;
+    text-align: center;
+    padding: 6px 0;
+}
+
+#nav .depth2 {
+    /* 서브메뉴 만들 때 공식처럼 쓰는 것. 부모의 바깥에 배치하기 위해 */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255, 0.5);
+    color: #000;
+    display: none;
+    /* 서브메뉴가 이미지에 가려져서 안보일 때 */
+    z-index: 9;
+}
+
+#nav .depth1 > li:hover .depth2 {
+    display: block;
+}
+
+#nav .depth2 li:hover {
+    background-color: #00ccff;
+    color: white;
+}
+
+#nav .depth2 a {
+    text-align: center;
+    display: block;
+    padding: 6px 0;
+}
+
+#section .article1 .slide {
+    height: 400px;
+    display: none;
+    /* 이걸 쓰면 떨어진 쪽에선 background-image: 로 써야함. 같이있으면 상관없음; */
+    background-size: cover;
+    position: relative;
+}
+
+#section .article1 .slide:nth-child(1) {
+    display: block;
+    background-image: url(../img/images\(1\).jpg);
+}
+
+#section .article1 .slide:nth-child(2) {
+    background-image: url(../img/images\(2\).jpg);
+}
+
+#section .article1 .slide:nth-child(3) {
+    background-image: url(../img/images\(3\).jpg);
+}
+
+#section .article1 .slide p {
+    font-size: 24px;
+    color: #893700;
+    width: 600px;
+    padding: 13px 0;
+    background: #999;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -27px;
+    margin-left: -300px;
+}
+
+/* section 구역 */
+
+
+#section .article2 {
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+#section .article2 .notice {
+    float: left;
+    width: 49%;
+}
+
+#section .article2 .info {
+    float: right;
+    width: 49%;
+}
+
+#section .article2 h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #999;
+    padding: 5px 0;
+}
+
+#section .article2 .notice col:nth-child(1) {
+    width: 80%;
+}
+
+#section .article2 .notice col:nth-child(2) {
+    width: 20%;
+}
+
+#section .article2 .notice table {
+    font-size: 14.4px;
+}
+
+/* 이렇게 하면 모든 td가 지목되기 때문에 이렇게 하면 안됨 */
+/* #section .article2 .notice th, td { */
+    /* 다 써줘야 함 */
+    #section .article2 .notice th, 
+    #section .article2 .notice td { 
+        padding: 5px;
+}
+
+#section .article2 .notice td:nth-child(1) {
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden
+}
+
+/* 짝수 선택할 때 even을 씀 */
+#section .article2 .notice tr:nth-child(even) {
+    background: #ddd;
+}
+
+#section .article2 .notice td:nth-child(2) {
+    text-align: center;
+} 
+
+#section .article2 .info {
+    text-align: center;
+}
+
+#section .article2 .info>div {
+    margin-top: 6px;
+}
+
+#section .article3 {
+    /* inline속성이 있을 때 text-align으로 가운데 정렬할 수 있다.; */
+    text-align: center;
+    padding: 30px 0;
+}
+
+#section .article3 > div {
+    /* 가운데 정렬을 위해 부모에게 text-align: center;를 주면 된다. */
+    display: inline-block;
+    margin: 0 40px;
+}
+
+/* 줄바꿈을 하고싶을 때 br태그 쓰지말고 하나를 block처리해준다. */
+/* img를 block으로 처리해 버튼을 인라인으로 냅둬 중앙정렬을 상속받게 한다 */
+#section .article3 > div img {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#section .article3 > div button {
+    background-color: #999;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+#section .article3 > div button:hover {
+    background-color: #900;
+    cursor: url(../img/pica.jfif) 20 20,auto;
+}
+
+
+
+
+/* footer 구역 */
+
+#footer {
+    background-color: #4298cc;
+    color: white;
+}
+
+#footer .row {
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+#footer .bmenu {
+    float: left;
+    width: 50%;
+    margin-top: 20px;
+}
+
+#footer .bmenu a{
+    padding: 0 10px;
+}
+
+#footer .address {
+    float: right;
+    width: 50%;
+    font-size: 12px;
+}
+
+#footer .address pre {
+    font-family: 'Nanum Gothic', sans-serif;
+    line-height: 1.5em;
+}
